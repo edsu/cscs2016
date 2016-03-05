@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maxiumum-scale=1.0" />
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/handlebars.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/app.js"></script>
+    <title>#cscw2016 urls</title>
+  </head>
+
+  <body>
+
+    <header class="row">
+      <div class="large-offset-1 large-11 large-centered columns text-center">
+        <h1>#cscw2016 urls</h1>
+        <div id="update"></div>
+        <hr>
+      </div>
+    </header>
+
+    <section id="resources">
+    </section>
+
+    <script id="resource-template" type="text/x-handlebars-template">
+      <article class="resource row">
+        <div class="count small-2 large-offset-1 large-1 columns">{{this.count}}</div>
+        <div class="detail small-10 large-8 columns">
+          <a class="title" href="{{url}}">
+            {{#if title}}
+              {{title}}
+            {{else}}
+              {{url}}
+            {{/if}}
+          </a>
+          <div class="avatars">
+            {{#each tweets}}
+            <a href="{{this.url}}">
+              <img class="avatar" title="{{this.name}}" src="{{this.avatar}}">
+            </a>
+            {{/each}}
+          </div>
+        </div>
+      </article>
+    </script>
+
+    <script id="update-template" type="text/x-handlebars-template">
+      <div>
+        recent: <a href="{{url}}">{{title}}</a> by <a href="https://twitter.com/">{{tweet.user.screen_name}}</a>
+      </div>
+    </script>
+
+  </body>
+</html>
